@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}<title>LiveChat-Room</title>{% endblock title%}
+{% block content %}
+    <main>
+        <section class="form-container">
+            <img id="logo" src="{% static 'Images/chat.png'%}">
+            <div id="welcome-message">
+                <h1>Welcome to VideoChatting</h1>
+                <p>A group video calling application for all of you!</p>
+            </div>
+            <form id="form" style="padding:4px 4px">
+                <div class="form-field">
+                    <input type="text" name="username" placeholder="Enter your Name..." style="text-transform:uppercase;">
+                </div>
+                <div class="form-field">
+                    <input type="text" name="room" placeholder="Enter a room name..." style="text-transform:uppercase;">
+                </div>
+                <div class="form-field">
+                    <input id="forbutton" type="submit" value="Join Meeting">
+                </div>
+            </form>
+        </section>
+    </main>
+
+<script type="text/javascript">
+    let form = document.getElementById('form')
+
+    let formsubmit = async (event) => {
+        event.preventDefault();
+
+        let channel = event.target.room.value.toUpperCase();
+        let clientName = event.target.username.value;
+
+        let response = await fetch(`/get_token/?channel=${channel}`);
+
+        let data = await response.json();
+        let UID = data.uid;
+        let token = data.token;
+
+        sessionStorage.setItem('UID',UID);
+        sessionStorage.setItem('token',token);
+        sessionStorage.setItem('channel',channel);
+        sessionStorage.setItem('Clientname',clientName);
+        
+        window.open('/meeting/','_self') // here '_self' prevent to open the meeting in new tab.
+    }
+
+    form.addEventListener('submit',formsubmit)
+</script>
+
+{% endblock content %}

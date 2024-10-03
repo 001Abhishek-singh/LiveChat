@@ -1,0 +1,115 @@
+body{
+    background-color: #f6f1f1;
+}
+#logo{
+    display: block;
+    width: 140px;
+    margin: 0 auto;
+}
+
+#welcome-message{
+    text-align: center;
+    margin: 20px;
+}
+#welcome-message h1{
+    font-size: 30px;
+}
+#welcome-message p{
+    font-size: 16px;
+}
+
+.form-container{
+    width: 400px;
+    box-shadow: 4px 6px 8px rgba(121,167,211,0.3);
+    background-color: #dedcdc;;
+    padding: 30px;
+    border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.form-field{
+    margin: 16px;
+}
+.form-field label{
+    font-size: 14px;
+    line-height: 1.7em;
+}
+.form-field input{
+    width:100%;
+    border: 2px solid rgba(198,202,219,1);
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#forbutton{
+    background-color: rgba(75,95,172,1);
+    color: white;
+    border: none;
+    font-size: 16px;
+}
+/* ------------ Meeting-room ------------ */
+#video-streams{
+    display: flex;
+    flex-wrap: wrap;
+    height: 85vh;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.video-container{
+    flex-basis: 500px;
+    flex-grow: 1;
+    max-height: 100%;
+    min-height: 350px;
+    border: 1px solid rgba(75,95,172,1);
+    border-radius: 5px;
+    margin: 2px;
+    background-color: rgba(198,202,219,1);
+    position: relative;
+}
+.video-player{
+    width: 100%;
+    height: 100%;
+}
+
+#controls-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    column-gap: 1em;
+    position: fixed;
+    bottom: 65px;
+}
+.control-icon{
+    height: 20px;
+    width: 20px;
+    box-shadow: 2px 4px 4px rgba(141,231,187,0.2);
+    background-color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+#stop-btn{
+    background-color: #f23030;
+}
+#room-name-wrapper{
+    text-align: center;
+    font-size: 18px;
+}
+.video-player > *{
+    border-radius: 5px;
+}
+.username-wrapper{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.3);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+}
